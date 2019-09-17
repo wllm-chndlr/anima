@@ -3,6 +3,7 @@
 module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'anima',
+    podModulePrefix: 'anima/pods',
     environment,
     rootURL: '/',
     locationType: 'auto',
