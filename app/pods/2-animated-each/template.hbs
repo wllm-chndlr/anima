@@ -1,0 +1,18 @@
+<div class="w-screen h-screen bg-grey-light">
+  <div class="max-w-sm mx-auto pt-4 text-sm">
+    <ul class="list-reset">
+      {{#animated-each this.genres use=this.transition as |genre|}}
+        <li class="flex bg-white mb-4 px-3 pt-2 pb-1 text-orange">
+          <span>
+            {{genre}}
+          </span>
+          <span class="ml-auto">
+            <button {{action "remove" genre}} class="px-2 py-1 text-teal">
+              {{fa-icon "times"}}
+            </button>
+          </span>
+        </li>
+      {{/animated-each}}
+    </ul>
+  </div>
+</div>
