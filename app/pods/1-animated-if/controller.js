@@ -6,12 +6,12 @@ export default Controller.extend({
 
   // transition: fade
 
-  transition: function*({ insertedSprites, removedSprites, duration }) {
-    for (let sprite of removedSprites) {
-      yield fadeOut(sprite, { duration: duration / 2 });
-    }
+  transition: function*({ insertedSprites, removedSprites, keptSprites, duration }) {
+    yield Promise.all(removedSprites.map(sprite => {
+      return fadeOut(sprite, { duration: duration / 2 });
+    }));
 
-    for (let sprite of insertedSprites) {
+    for (let sprite of insertedSprites.concat(keptSprites)) {
       fadeIn(sprite, { duration: duration / 2 });
     }
   }
