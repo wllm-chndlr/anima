@@ -3,19 +3,23 @@ import { A } from "@ember/array";
 import { fadeOut } from "ember-animated/motions/opacity";
 import move from "ember-animated/motions/move";
 import { wait } from "ember-animated";
-// import { isEqual } from "lodash-es";
+import isEqual from 'lodash/isEqual';
 
 const COLORS = ["blue", "green", "red"];
 
 export default Controller.extend({
   *transition({ duration, removedSprites, keptSprites }) {
     for (let sprite of removedSprites) {
-      yield fadeOut(sprite, { duration: duration * (1 / 2) });
+      yield fadeOut(sprite, { duration: duration * (1 / 4) });
     }
 
-    for (let sprite of keptSprites) {
+    let movingSprites = keptSprites.filter(sprite => {
+      return !isEqual(sprite.initialBounds, sprite.finalBounds);
+    });
+
+    for (let sprite of movingSprites) {
       move(sprite, { duration: duration * (1 / 2) });
-      yield wait(50);
+      yield wait(duration * (1 / 4) * (1 / movingSprites.length));
     }
   },
 

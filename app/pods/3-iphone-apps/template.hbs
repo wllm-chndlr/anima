@@ -2,7 +2,7 @@
   {{#animated-each this.apps use=this.transition as |app|}}
     <div
       {{action "removeApp" app}}
-      class="bg-{{app.color}} text-white text-xl font-bold w-32 h-32 mx-2 my-2 shadow rounded flex items-center justify-center"
+      class="bg-{{app.color}} text-white text-xl font-bold cursor-pointer w-32 h-32 mx-2 my-2 shadow rounded flex items-center justify-center"
     >
       {{app.name}}
     </div>
