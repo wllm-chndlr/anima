@@ -6,22 +6,26 @@ import move from 'ember-animated/motions/move';
 import { wait } from 'ember-animated';
 
 export default Controller.extend({
-  // transition: toRight,
-  *transition({ insertedSprites, removedSprites }) {
+  *transition({ duration, insertedSprites, removedSprites }) {
     for (let sprite of removedSprites) {
-      sprite.endTranslatedBy(0, sprite.initialBounds.height);
-      move(sprite);
-      fadeOut(sprite);
+      sprite.endAtPixel({ x: 0 - sprite.initialBounds.width });
+      move(sprite, {
+        duration: duration * (1/2)
+      });
+      fadeOut(sprite, {
+        duration: duration * (1/2)
+      });
     }
-
-    yield wait(150);
 
     for (let sprite of insertedSprites) {
-      sprite.startTranslatedBy(0, -sprite.finalBounds.height);
-      move(sprite);
-      fadeIn(sprite);
+      sprite.startAtPixel({ x: window.innerWidth });
+      move(sprite, {
+        duration: duration * (1/2)
+      });
+      fadeIn(sprite, {
+        duration: duration * (1/2)
+      });
     }
-
   },
 
   word: faker.company.bsBuzz().toUpperCase(),
