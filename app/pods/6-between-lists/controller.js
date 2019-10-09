@@ -1,7 +1,6 @@
 import Controller from "@ember/controller";
 import { A } from "@ember/array";
 import move from "ember-animated/motions/move";
-import { fadeIn, fadeOut } from "ember-animated/motions/opacity";
 
 export default Controller.extend({
 
@@ -12,22 +11,15 @@ export default Controller.extend({
     this.blueList = A([]);
   },
 
-  *redTransition({ insertedSprites, removedSprites, keptSprites, sentSprites, receivedSprites }) {
-    console.log(arguments[0]);
-
-    insertedSprites.forEach(fadeIn);
-    removedSprites.forEach(fadeOut);
+  *redTransition({ keptSprites, receivedSprites }) {
     keptSprites.forEach(move);
-
-    sentSprites.forEach(move);
     receivedSprites.forEach(move);
   },
 
-  // *blueTransition({ insertedSprites, removedSprites, keptSprites }) {
-  //   insertedSprites.forEach(fadeIn);
-  //   removedSprites.forEach(fadeOut);
-  //   keptSprites.forEach(move);
-  // },
+  *blueTransition({ keptSprites, receivedSprites }) {
+    keptSprites.forEach(move);
+    receivedSprites.forEach(move);
+  },
 
   actions: {
     moveToBlue(item) {
@@ -40,6 +32,4 @@ export default Controller.extend({
       this.blueList.removeObject(item);
     }
   }
-
-
 });
