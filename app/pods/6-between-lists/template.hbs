@@ -16,7 +16,7 @@
     <div class="w-1/2">
       <p class="font-bold mb-4 text-lg text-blue">Blue List</p>
       <ul class="list-reset">
-        {{#animated-each this.blueList as |item|}}
+        {{#animated-each this.blueList use=this.blueTransition as |item|}}
           <li class="my-4">
             <span class="pr-2">Item {{item}}</span>
             <button {{action "moveToRed" item}} class="bg-red px-3 py-2 rounded text-white">Move to Red</button>
