@@ -1,0 +1,30 @@
+<div class="max-w-md mx-auto mt-8">
+  <h1>Selected Item</h1>
+
+  <div class="flex mt-4">
+    <div class="w-1/2">
+      <p class="font-bold mb-4 text-lg text-red">Red List</p>
+      <ul class="list-reset">
+        {{#animated-each this.redList use=this.redTransition as |item|}}
+          <li class="my-4">
+            <span class="pr-2">Item {{item}}</span>
+            <button
+              class="bg-green px-3 py-2 rounded text-white"
+              {{action "select" item}}
+            >
+              Select
+            </button>
+          </li>
+        {{/animated-each}}
+      </ul>
+    </div>
+    <div class="w-1/2">
+      <p class="font-bold mb-4 text-lg text-green">Selected Item</p>
+      {{#if this.selectedItem}}
+        <p>Item {{this.selectedItem}}</p>
+      {{else}}
+        <p>No item</p>
+      {{/if}}
+    </div>
+  </div>
+</div>
