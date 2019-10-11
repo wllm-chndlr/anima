@@ -20,11 +20,13 @@
     </div>
     <div class="w-1/2">
       <p class="font-bold mb-4 text-lg text-green">Selected Item</p>
-      {{#if this.selectedItem}}
-        <p>Item {{this.selectedItem}}</p>
-      {{else}}
-        <p>No item</p>
-      {{/if}}
+      {{#animated-value this.selectedItem use=this.selectedTransition as |value|}}
+        {{#if value}}
+          <p>Item {{value}}</p>
+        {{else}}
+          <p>No item</p>
+        {{/if}}
+      {{/animated-value}}
     </div>
   </div>
 </div>
