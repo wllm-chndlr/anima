@@ -5,7 +5,7 @@
     <div class="w-1/2">
       <p class="font-bold mb-4 text-lg text-red">Red List</p>
       <ul class="list-reset">
-        {{#animated-each this.redList use=this.redTransition as |item|}}
+        {{#animated-each this.sortedRedList use=this.redTransition as |item|}}
           <li class="my-4">
             <span class="pr-2">Item {{item}}</span>
             <button
@@ -22,7 +22,15 @@
       <p class="font-bold mb-4 text-lg text-green">Selected Item</p>
       {{#animated-value this.selectedItem use=this.selectedTransition as |value|}}
         {{#if value}}
-          <p>Item {{value}}</p>
+          <p>
+            <span class="pr-2">Item {{value}}</span>
+            <button
+              disabled="true"
+              class="bg-green px-3 py-2 rounded text-white opacity-50 cursor-default"
+            >
+              Select
+            </button>
+          </p>
         {{else}}
           <p>No item</p>
         {{/if}}
