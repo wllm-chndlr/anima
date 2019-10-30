@@ -9,6 +9,9 @@ export default Controller.extend({
 
     *transition({ receivedSprites, insertedSprites }) {
         receivedSprites.forEach(sprite => {
+            sprite.applyStyles({
+                zIndex: 1
+            })
             move(sprite);
             resize(sprite);
         });
