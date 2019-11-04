@@ -6,8 +6,9 @@
             {{#animated-value
                 movie
                 use=this.transition
-                initialInsertion=this.appState.didRender as |value|}}
-                {{#link-to '8-nested-routes.movie' value.id class="inline-block"}}
+                initialInsertion=this.appState.didRender
+                finalRemoval=true as |value|}}
+                {{#link-to "8-nested-routes.movie" value.id class="inline-block"}}
                     <img src={{value.posterUrl}}/>
                 {{/link-to}}
             {{/animated-value}}
