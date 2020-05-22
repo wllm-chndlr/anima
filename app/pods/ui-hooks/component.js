@@ -1,7 +1,6 @@
 import Component from '@ember/component';
 
 export default Component.extend({
-
     'did-insert'() {},
 
     didInsertElement() {
@@ -9,6 +8,4 @@ export default Component.extend({
 
         this['did-insert']();
     }
-
-
 })

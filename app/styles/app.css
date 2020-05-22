@@ -10,10 +10,6 @@ a {
     transition: color 0.5s;
 }
 
-/* a:hover {
-    color: rgb(21, 94, 107);
-} */
-
 .active {
     color: rgb(17, 134, 149);
 }
