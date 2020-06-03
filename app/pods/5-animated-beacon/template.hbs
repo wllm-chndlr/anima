@@ -23,7 +23,7 @@
   <div class="max-w-lg mx-auto mt-12 px-8 flex">
     <div class="w-1/5">
       <div class="fixed">
-        <button class="bg-blue text-white px-3 py-2 rounded focus:outline-none focus:shadow-outline"
+        <button class="bg-teal text-white px-3 py-2 rounded focus:outline-none focus:shadow-outline"
           {{action "deleteSelectedItems"}}
         >
           Delete {{this.selectedItems.length}} items
@@ -36,7 +36,7 @@
           <li>
             <button {{action "toggle" item}} class="
               block w-full px-3 py-2 text-left focus:outline-none
-              {{if (contains item this.selectedItems) "bg-blue text-white" "hover:bg-grey-lighter"}}
+              {{if (contains item this.selectedItems) "bg-teal text-white" "hover:bg-grey-lighter"}}
             ">
               File {{item.name}}
             </button>
