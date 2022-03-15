@@ -54,7 +54,7 @@
     "ember-welcome-page": "^3.2.0",
     "eslint-plugin-ember": "^5.2.0",
     "loader.js": "^4.7.0",
-    "lodash-es": "^4.17.15",
+    "lodash-es": "^4.17.21",
     "qunit-dom": "^0.8.0"
   },
   "engines": {
